@@ -1,0 +1,13 @@
+Mình gửi một số link sử dụng trong bài:
+Link tham khảo:
+https://github.com/egliette/MultiAgentAI 
+https://microsoft.github.io/autogen/ 
+https://github.com/microsoft/autogen 
+https://www.crewai.com/
+https://github.com/joaomdmoura/crewAI 
+https://lmstudio.ai/
+https://serper.dev/
+https://www.microsoft.com/en-us/bing/apis/bing-web-search-api 
+https://microsoft.github.io/autogen/blog/2023/12/01/AutoGenStudio/
+
+has context menu

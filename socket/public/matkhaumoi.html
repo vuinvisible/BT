@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đăng nhập</title>
+    <link rel="stylesheet" href="./stylesheets/style.css">
+</head>
+
+<body>
+    <div class="split-screen">
+        <div class="left">
+            <section class="copy">
+                <h1>Hello, Friends</h1>
+            </section>
+        </div>
+        <div class="right">
+            <form action="/xulymkm" method="post">
+                <section class="copy">
+                    <h2>Nhập mật khẩu mới</h2>
+                </section><br><br>
+
+                <div class="input-container password">
+                    <label for="matkhau">Mật khẩu mới</label>
+                    <input type="password" name="pass" placeholder="Nhập mật khẩu mới">
+                    <i class="for fa-eye-slash"></i>
+                </div>
+
+                <div class="input-container password">
+                    <label for="nl-matkhau">Nhập lại mật khẩu</label>
+                    <input type="password" name="repass" placeholder="Nhập lại mật khẩu">
+                    <i class="for fa-eye-slash"></i>
+                </div>
+
+
+                <button class="signup-btn" type="submit" name="xacnhan">Xác nhận</button>
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

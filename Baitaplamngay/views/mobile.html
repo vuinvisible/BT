@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Mobile page</title>
+        <style>
+            .product-container {
+                display: inline-flex;
+                flex-wrap: wrap; /* Cho phép các phần tử con xuống dòng khi không còn không gian đủ */
+                justify-content: space-between; /* Các phần tử con sẽ được căn đều trên dòng */
+            }
+
+            .product {
+                border: 1px solid #000000;
+                width: 48%;
+                margin-bottom: 1%; /* Tạo khoảng cách giữa các phần tử */
+                box-sizing: border-box; /* Đảm bảo kích thước của phần tử bao gồm cả đường viền */
+            }
+
+            .product img {
+                width: 100%;
+                height: auto;
+            }
+
+        </style>
+    </head>
+    <body>
+        <h1>Đây là trang mobile page</h1>
+        <div class="product-container">
+            <div class="product">
+                <img src="../image/ip15.jpg" alt="Lỗi hình ảnh">
+                <p>Iphone 15 Pro Max</p>
+                <p>34.990.000đ</p>
+            </div>
+
+            <div class="product">
+                <img src="../image/ss-s24-ultra.jpg" alt="Lỗi hình ảnh">
+                <p>Samsung S24 Ultra</p>
+                <p>33.990.000đ</p>
+            </div>
+        </div>
+    </body>
+</html>

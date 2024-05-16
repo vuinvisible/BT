@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>ChatRoom</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel = "stylesheet" href="./stylesheets/style.css">
+  <script>
+    // var name = prompt("Please enter your name");
+    // var name = '<%= session.user %>';
+    var name;
+    var socket;
+    // Gửi yêu cầu đến API để lấy thông tin session
+    fetch('/api/session')
+      .then(response => response.json())
+      .then(data => {
+        // Xử lý dữ liệu session từ API
+        if (data.user) {
+          // const name = data.username;
+          name = data.user;
+
+          socket = io();
+          socket.emit('joining msg', name);
+        }
+      })
+      .catch(error => console.error(error));
+  </script>
+</head>
+<body>
+    <div class="wrap">
+        
+        <div id="intro">
+            <h1>ChatRoom</h1>
+          </div>
+          
+          <ul id="messages"></ul>
+          
+          <form action="">
+            <input id="m" placeholder="Enter your message..." autocomplete="off" required /><button>Send</button>
+          </form>
+
+          <div class="mes">
+            <script src="/socket.io/socket.io.js"></script>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+            <script>
+            
+                socket = io();
+                // socket.emit('joining msg', name);
+                $('form').submit(function(e) {
+                    e.preventDefault();            // will prevent page reloading
+                
+                //     socket.emit('chat message', (name + ':  ' + $('#m').val()));
+                //                 $('#messages').append($('<li id="list">').text('You:  ' + $('#m').val()));
+                //     $('#m').val('');
+                //     return false;
+                // });
+                // socket.on('chat message', function(msg){
+                //     $('#messages').append($('<li>').text(msg));
+
+                      var message = $('#m').val();
+                      if (message.trim() !== '') {
+                        socket.emit('chat message', { sender: name, message: message });
+                        $('#m').val('');
+                      }
+                      return false;
+                });
+
+                socket.on('chat message', function(data) {
+                  if (data.sender === name) {
+                      $('#messages').append($('<li class="sender">').text('You: ' + data.message));
+                  } else {
+                      $('#messages').append($('<li class="receiver">').text(data.sender + ': ' + data.message));
+                  }
+                  // Cuộn xuống phần cuối của danh sách tin nhắn
+                  var messagesList = $('#messages');
+                  messagesList.scrollTop(messagesList.prop('scrollHeight'));
+                });
+
+                
+            </script>
+            
+          </div>
+          
+    </div>
+    
+</body>
+</html>
